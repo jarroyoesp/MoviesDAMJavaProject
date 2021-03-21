@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SplashScreen-26-oct-o</string>
+    <string name="activity_login_email">Email:</string>
+    <string name="activity_login_button_enter">Entrar</string>
+    <string name="activity_login_fab_text">Acción</string>
+    <string name="row_item_more_info">Ver más</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment 2</string>
+    <string name="more_info">Más información</string>
+    <string name="music">Música</string>
+    <string name="location">Localización</string>
+</resources>
