@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_detail_parallax_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/activity_login_button_enter"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/activity_detail_parallax_textview"
+        android:text="@string/text_large"
+        android:textColor="@color/colorPrimary" />
+</RelativeLayout>

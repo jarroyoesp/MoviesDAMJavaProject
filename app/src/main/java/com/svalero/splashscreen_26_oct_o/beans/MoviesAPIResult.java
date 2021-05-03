@@ -1,5 +1,7 @@
 package com.svalero.splashscreen_26_oct_o.beans;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class MoviesAPIResult {

@@ -1,5 +1,7 @@
 package com.svalero.splashscreen_26_oct_o.beans;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,8 +16,11 @@ public class Movie {
 
     private int id;
     // CUIDADO EL NOMBRE DE LA VARIABLE TIENE QUE SER EL MISMO QUE EN EL JSON O USAR @SerializedName("NOMBRE EN EL JSON")
+    @SerializedName("title")
     private String titulo;
+    @SerializedName("overview")
     private String sinopsis;
+    @SerializedName("poster_path")
     private String image;
 
     public int getId() {

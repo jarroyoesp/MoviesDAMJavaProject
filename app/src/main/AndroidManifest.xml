@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".detail.activity.DetailNavigationActivity"></activity>
+        <activity android:name=".detailParallax.DetailParallaxActivity"></activity>
+        <activity android:name=".detail.activity.DetailNavigationActivity" />
         <activity android:name=".detailOld.activity.DetailActivity" />
         <activity android:name=".movies.lstMovies.view.LstMoviesActivity">
             <intent-filter>

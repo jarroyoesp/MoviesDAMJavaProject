@@ -7,11 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.svalero.splashscreen_26_oct_o.MainActivity;
 import com.svalero.splashscreen_26_oct_o.R;
 import com.svalero.splashscreen_26_oct_o.RegisterRelativeLayout;
 import com.svalero.splashscreen_26_oct_o.beans.Movie;
@@ -53,6 +56,8 @@ public class LstMoviesActivity
         lstMoviesPresenter.getMovies(this);
 
         setListeners();
+
+        initUI();
     }
 
     private void setListeners() {
@@ -66,6 +71,47 @@ public class LstMoviesActivity
             }
         });
     }
+
+    private void initUI()
+    {
+        //UI reference of textView
+        final AutoCompleteTextView customerAutoTV = findViewById(R.id.filled_exposed_dropdown);
+
+        // create list of customer
+        ArrayList<String> customerList = getCustomerList();
+
+        //Create adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(LstMoviesActivity.this, android.R.layout.simple_spinner_item, customerList);
+
+        //Set adapter
+        customerAutoTV.setAdapter(adapter);
+
+        //submit button click event registration
+        /*findViewById(R.id.submitButton).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Toast.makeText(LstMoviesActivity.this, customerAutoTV.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });*/
+    }
+
+    private ArrayList<String> getCustomerList()
+    {
+        ArrayList<String> customers = new ArrayList<>();
+        customers.add("James");
+        customers.add("Mary");
+        customers.add("Paul");
+        customers.add("Michael");
+        customers.add("William");
+        customers.add("Daniel");
+        customers.add("Thomas");
+        customers.add("Sarah");
+        customers.add("Sophia");
+        return customers;
+    }
+
 
     @Override
     public void success(ArrayList<Movie> movies) {

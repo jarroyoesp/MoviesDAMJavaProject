@@ -8,6 +8,20 @@
     android:orientation="vertical"
     tools:context=".movies.lstMovies.view.LstMoviesActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayout"
+        android:hint="texto">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/filled_exposed_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <!-- Reciclador -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMovies"
@@ -15,6 +29,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:visibility="gone"
+        android:layout_below="@+id/textInputLayout"
         android:clipToPadding="false"
         android:padding="@dimen/padding_general"/>
 

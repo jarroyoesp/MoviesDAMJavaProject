@@ -17,6 +17,7 @@ import com.svalero.splashscreen_26_oct_o.R;
 import com.svalero.splashscreen_26_oct_o.beans.Movie;
 import com.svalero.splashscreen_26_oct_o.detail.activity.DetailNavigationActivity;
 import com.svalero.splashscreen_26_oct_o.detailOld.activity.DetailActivity;
+import com.svalero.splashscreen_26_oct_o.detailParallax.DetailParallaxActivity;
 
 import java.util.ArrayList;
 
@@ -80,10 +81,12 @@ public class MovieAdapter
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent detalle = new Intent(holder.cardView.getContext(), DetailNavigationActivity.class);
+                Intent detalle = new Intent(holder.cardView.getContext(), DetailParallaxActivity.class);
 
+                String urlBase = "https://image.tmdb.org/t/p/original";
                 Bundle extras = new Bundle();
-                extras.putString(DetailActivity.ARG_EXTRA_TITLE, movie.getTitulo());
+                extras.putString(DetailParallaxActivity.ARG_EXTRAS_TITLE, movie.getTitulo());
+                extras.putString(DetailParallaxActivity.ARG_EXTRAS_IMAGE, urlBase + movie.getImage());
 
                 detalle.putExtras(extras);
 

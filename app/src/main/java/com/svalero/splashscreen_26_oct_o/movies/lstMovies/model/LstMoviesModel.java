@@ -3,6 +3,7 @@ package com.svalero.splashscreen_26_oct_o.movies.lstMovies.model;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -28,14 +29,19 @@ import retrofit2.Response;
 public class LstMoviesModel
         implements LstMoviesContract.Model {
 
+    private static final String TAG = LstMoviesModel.class.getSimpleName();
+
     @Override
     public void getMoviesWS(Context context, final OnLstMoviesListener onLstMoviesListener) {
         ApiClient apiClient = new ApiClient(context);
         final Call<MoviesAPIResult> batch = apiClient.getMovies();
+        //final Call<MoviesAPIResult> batch = apiClient.getTopRated();
 
+        // Encolar la peticion (enqueue) para que se ejecute en un thread distinto.
         batch.enqueue(new Callback<MoviesAPIResult>() {
             @Override
             public void onResponse(@Nullable Call<MoviesAPIResult> call, @Nullable Response<MoviesAPIResult> response) {
+                Log.d(TAG, "[onResponse]: " + response.body().getResults());
                 if (response != null && response.body() != null) {
                     onLstMoviesListener.resolve(new ArrayList<Movie>(response.body().getResults()));
                 }
@@ -43,6 +49,7 @@ public class LstMoviesModel
 
             @Override
             public void onFailure(@Nullable Call<MoviesAPIResult> call, @Nullable Throwable t) {
+                Log.d(TAG, "[onFailure]: " + t);
                 t.printStackTrace();
                 onLstMoviesListener.reject(t.getLocalizedMessage());
             }

@@ -33,4 +33,9 @@ public class ApiClient {
         TheMovieApiInterface service = retrofit.create(TheMovieApiInterface.class);
         return service.getMovies();
     }
+
+    public Call<MoviesAPIResult> getTopRated(String apikey) {
+        TheMovieApiInterface service = retrofit.create(TheMovieApiInterface.class);
+        return service.getTopRated();
+    }
 }
