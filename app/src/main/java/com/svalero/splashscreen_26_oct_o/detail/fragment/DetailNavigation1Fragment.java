@@ -1,9 +1,12 @@
 package com.svalero.splashscreen_26_oct_o.detail.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +29,20 @@ public class DetailNavigation1Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private DetailListener listener;
+
     public DetailNavigation1Fragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (DetailListener) getActivity();
+        } catch (Exception e) {
+            Log.e("DetailFragment", "Activity tiene que implementar DetailListener");
+        }
     }
 
     /**
@@ -61,6 +76,18 @@ public class DetailNavigation1Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_navigation1, container, false);
+        View view = inflater.inflate(R.layout.fragment_detail_navigation1, container, false);
+
+
+
+        return view;
+    }
+
+    void onSuccess() {
+        listener.onCompraHecha();
+    }
+
+    public interface DetailListener {
+        void onCompraHecha();
     }
 }

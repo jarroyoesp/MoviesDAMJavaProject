@@ -11,11 +11,12 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.svalero.splashscreen_26_oct_o.R;
+import com.svalero.splashscreen_26_oct_o.detail.fragment.DetailNavigation1Fragment;
 import com.svalero.splashscreen_26_oct_o.detailOld.activity.DetailActivity;
 import com.svalero.splashscreen_26_oct_o.detailOld.fragment.Detail2Fragment;
 import com.svalero.splashscreen_26_oct_o.detailOld.fragment.DetailFragment;
 
-public class DetailNavigationActivity extends AppCompatActivity {
+public class DetailNavigationActivity extends AppCompatActivity implements DetailNavigation1Fragment.DetailListener {
 
     private static String TAG = DetailNavigationActivity.class.getSimpleName();
 
@@ -76,4 +77,9 @@ public class DetailNavigationActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    @Override
+    public void onCompraHecha() {
+        getSupportFragmentManager().popBackStack();
+        // Mostrar snackbar
+    }
 }

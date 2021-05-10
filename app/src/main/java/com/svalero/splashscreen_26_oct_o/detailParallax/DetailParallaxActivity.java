@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -36,6 +37,11 @@ public class DetailParallaxActivity extends AppCompatActivity {
         mImageView = findViewById(R.id.toolbar_imageview);
         Picasso.get().load(mImageURL).into(mImageView);
 
+        AlphaAnimation animation1 = new AlphaAnimation(0.0f, 1.0f);
+        animation1.setDuration(1000);
+        animation1.setStartOffset(1000);
+        animation1.setFillAfter(true);
+        mImageView.startAnimation(animation1);
 
         mToolbar = findViewById(R.id.toolbar);
         mToolbar.setTitle(mTitle);

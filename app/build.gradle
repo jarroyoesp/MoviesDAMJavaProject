@@ -20,12 +20,14 @@ android {
         def BOOLEAN = "boolean"
 
         debug {
-            buildConfigField STRING, "API_URL", '"https://tuUrl.com"'
+            buildConfigField STRING, "API_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField STRING, "API_KEY", '"d9c4177bb1cc819d43088d25fbe2474c"'
             buildConfigField STRING, "API_KEY_FABRIC", '"ApiKey"'
         }
 
         release {
             buildConfigField STRING, "API_URL", '"https://tuUrlProduccion.com”'
+            buildConfigField STRING, "API_KEY", '"d9c4177bb1cc819d43088d25fbe2474c"'
             buildConfigField STRING, "API_KEY_FABRIC", '"ApiKeyRelease”'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

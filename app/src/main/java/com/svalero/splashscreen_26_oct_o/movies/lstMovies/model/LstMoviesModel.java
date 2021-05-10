@@ -41,8 +41,9 @@ public class LstMoviesModel
         batch.enqueue(new Callback<MoviesAPIResult>() {
             @Override
             public void onResponse(@Nullable Call<MoviesAPIResult> call, @Nullable Response<MoviesAPIResult> response) {
-                Log.d(TAG, "[onResponse]: " + response.body().getResults());
+                Log.d(TAG, "[onResponse]: " + response.body());
                 if (response != null && response.body() != null) {
+                    Log.d(TAG, "[onResponse]: " + response.body().getResults());
                     onLstMoviesListener.resolve(new ArrayList<Movie>(response.body().getResults()));
                 }
             }
